@@ -1,6 +1,34 @@
 (function ($) {
     "use strict";
-    
+    const milestonesSection = document.querySelector('#milestones');
+    const milestonesList = document.querySelector('#milestones #count');
+    let isCounting = false;
+
+    function countNumbers() {
+        const scrollTop = window.pageYOffset + window.innerHeight;
+        const milestonesOffset = milestonesSection.offsetTop + milestonesSection.offsetHeight / 2;
+
+        if (scrollTop >= milestonesOffset && !isCounting) {
+            isCounting = true;
+            
+                const targetNumber = 5000;
+                let currentNumber = 0;
+                const countInterval = setInterval(() => {
+                    currentNumber+=5;
+                    
+                    milestonesList.querySelector('.count').innerText = currentNumber;
+                  
+                    
+                    if (currentNumber >= targetNumber) {
+                        clearInterval(countInterval);
+                    }
+                }, 1);
+            ;
+        }
+    }
+
+    window.addEventListener('scroll', countNumbers);
+
     // Dropdown on mouse hover
     $(document).ready(function () {
         function toggleNavbarMethod() {
@@ -26,8 +54,8 @@
     $('.time').datetimepicker({
         format: 'LT'
     });
-    
-    
+
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
@@ -37,7 +65,7 @@
         }
     });
     $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
         return false;
     });
 
@@ -49,20 +77,20 @@
         margin: 45,
         dots: false,
         loop: true,
-        nav : true,
-        navText : [
+        nav: true,
+        navText: [
             '<i class="bi bi-arrow-left"></i>',
             '<i class="bi bi-arrow-right"></i>'
         ],
         responsive: {
-            0:{
-                items:1
+            0: {
+                items: 1
             },
-            992:{
-                items:2
+            992: {
+                items: 2
             },
-            1200:{
-                items:3
+            1200: {
+                items: 3
             }
         }
     });
@@ -75,17 +103,17 @@
         margin: 45,
         dots: false,
         loop: true,
-        nav : true,
-        navText : [
+        nav: true,
+        navText: [
             '<i class="bi bi-arrow-left"></i>',
             '<i class="bi bi-arrow-right"></i>'
         ],
         responsive: {
-            0:{
-                items:1
+            0: {
+                items: 1
             },
-            992:{
-                items:2
+            992: {
+                items: 2
             }
         }
     });
@@ -99,6 +127,6 @@
         dots: true,
         loop: true,
     });
-    
+
 })(jQuery);
 
