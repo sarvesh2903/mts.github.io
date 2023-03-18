@@ -93,7 +93,7 @@
   .myItem{
     padding:10px 0 !important;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 16px;
   }
   .myList {
     list-style: none;
@@ -156,7 +156,26 @@
     text-shadow: rgb(235, 155, 155);
     text-decoration: solid;
 }
-
+@media(max-width:700px){
+    .mobile_section{
+        position: relative;
+        left: -30px;
+    }
+    .mobile-list{
+        width: 325px;
+    }
+    .myList{
+        position:relative;
+        left: -50px;
+        width: 330px;
+    }
+    .myItem{
+        font-size: 12px;
+    }
+    .mts{
+        font-size: 40px;
+    }
+}
 @media (max-width: 991.98px) {
     .navbar-light .navbar-nav .nav-link  {
         margin-left: 0;
