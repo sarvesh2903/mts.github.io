@@ -33,7 +33,16 @@
         var phoneNumber = "+917219632623"; // Replace with your desired mobile number
 
             var encodedPhoneNumber = encodeURIComponent(phoneNumber);
-            var whatsappURL = "https://web.whatsapp.com/send?phone=" + encodedPhoneNumber;
+            
+            
+
+            var userAgent = navigator.userAgent.toLowerCase();
+
+            if (userAgent.indexOf("mobile") !== -1) {
+                var whatsappURL = "https://wa.me/" + encodedPhoneNumber;
+            } else {
+                var whatsappURL = "https://web.whatsapp.com/send?phone=" + encodedPhoneNumber;
+            }
 
             window.open(whatsappURL, "_blank");
     };
