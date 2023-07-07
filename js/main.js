@@ -11,10 +11,10 @@
         if (scrollTop >= milestonesOffset && !isCounting) {
             isCounting = true;
             
-                const targetNumber = 5000;
+                const targetNumber = 20000;
                 let currentNumber = 0;
                 const countInterval = setInterval(() => {
-                    currentNumber+=5;
+                    currentNumber+=25;
                     
                     milestonesList.querySelector('.count').innerText = currentNumber;
                   
@@ -22,12 +22,21 @@
                     if (currentNumber >= targetNumber) {
                         clearInterval(countInterval);
                     }
-                }, 1);
+                }, 0);
             ;
         }
     }
 
     window.addEventListener('scroll', countNumbers);
+
+    document.getElementById("whatsappButton").onclick = function() {
+        var phoneNumber = "+917219632623"; // Replace with your desired mobile number
+
+            var encodedPhoneNumber = encodeURIComponent(phoneNumber);
+            var whatsappURL = "https://web.whatsapp.com/send?phone=" + encodedPhoneNumber;
+
+            window.open(whatsappURL, "_blank");
+    };
 
     // Dropdown on mouse hover
     $(document).ready(function () {
