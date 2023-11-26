@@ -11,10 +11,10 @@
         if (scrollTop >= milestonesOffset && !isCounting) {
             isCounting = true;
             
-                const targetNumber = 20000;
+                const targetNumber = 50000;
                 let currentNumber = 0;
                 const countInterval = setInterval(() => {
-                    currentNumber+=25;
+                    currentNumber+=50;
                     
                     milestonesList.querySelector('.count').innerText = currentNumber;
                   
